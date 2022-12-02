@@ -1,20 +1,19 @@
 mod day_2 {
-    use std::env;
+    
     use std::fs;
 
     pub fn part_1() {
-        let puzzle_input = get_puzzle_input();
 
         let mut points = 0;
 
-        fs::read_to_string(puzzle_input)
+        fs::read_to_string(include_str!("../input.txt"))
             .unwrap().
             lines().
             map(|n| n.parse().unwrap())
             .collect::<Vec<String>>()
             .iter().
             for_each(|pair| {
-                let vec = pair.split(" ")
+                let vec = pair.split(' ')
                                             .map(|n| n.parse().unwrap())
                                             .collect::<Vec<char>>();  
                 points += match_part_1(vec[0], vec[1]);
@@ -25,18 +24,17 @@ mod day_2 {
     }
 
     pub fn part_2() {
-        let puzzle_input = get_puzzle_input();
 
         let mut points = 0;
 
-        fs::read_to_string(puzzle_input)
-            .unwrap().
-            lines().
-            map(|n| n.parse().unwrap())
+        include_str!("../input.txt")
+            .to_string()
+            .lines()
+            .map(|n| n.parse().unwrap())
             .collect::<Vec<String>>()
             .iter().
             for_each(|pair| {
-                let vec = pair.split(" ")
+                let vec = pair.split(' ')
                                             .map(|n| n.parse().unwrap())
                                             .collect::<Vec<char>>();  
                 points += match_part_2(vec[0], vec[1]);
@@ -44,16 +42,6 @@ mod day_2 {
 
         println!("Part two answer: {points}");
 
-    }
-
-    fn get_puzzle_input() -> String {
-        let mut dir =  env::current_dir()
-                .unwrap()
-                .into_os_string()
-                .into_string()
-                .unwrap();
-        dir.push_str("/input/input.txt");
-        return dir;
     }
 
     fn match_part_1(e: char, p: char) -> i32
@@ -88,9 +76,9 @@ mod day_2 {
                     'C' => score += 3,
                     _ => print!("Invalid")
                 }},
-            _ => println!("Invalid OUTER")
+            _ => println!("Invalid")
         }
-        return score;
+        score
     }
 
     fn match_part_2(e: char, o: char) -> i32
@@ -124,9 +112,9 @@ mod day_2 {
                     'C' => score += 1,
                     _ => print!("Invalid")
                 }},
-            _ => println!("Invalid OUTER")
+            _ => println!("Invalid ")
         }
-        return score;
+        score
     }
 }
 fn main() {
