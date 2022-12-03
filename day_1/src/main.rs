@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 
 mod day_1 {
+
     pub fn compute_calories(size: usize)
     {
         let mut r = 0;
@@ -21,7 +22,6 @@ mod day_1 {
                                     r = 0;
                                 }
                             });
-
         vec.sort();
         vec.reverse();
         vec.resize(size, 0);
