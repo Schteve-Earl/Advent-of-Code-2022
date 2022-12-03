@@ -1,26 +1,22 @@
-mod day_2 {
-    
-    use std::fs;
-
+mod day_02 {
     pub fn part_1() {
 
         let mut points = 0;
 
-        fs::read_to_string(include_str!("../input.txt"))
-            .unwrap().
-            lines().
-            map(|n| n.parse().unwrap())
+        include_str!("../input.txt")
+            .to_string()
+            .lines()
+            .map(|n| n.parse().unwrap())
             .collect::<Vec<String>>()
-            .iter().
-            for_each(|pair| {
+            .iter()
+            .for_each(|pair| {
                 let vec = pair.split(' ')
-                                            .map(|n| n.parse().unwrap())
-                                            .collect::<Vec<char>>();  
+                            .map(|n| n.parse().unwrap())
+                            .collect::<Vec<char>>();  
                 points += match_part_1(vec[0], vec[1]);
                 });
 
         println!("Part one answer: {points}");
-
     }
 
     pub fn part_2() {
@@ -32,11 +28,11 @@ mod day_2 {
             .lines()
             .map(|n| n.parse().unwrap())
             .collect::<Vec<String>>()
-            .iter().
-            for_each(|pair| {
+            .iter()
+            .for_each(|pair| {
                 let vec = pair.split(' ')
-                                            .map(|n| n.parse().unwrap())
-                                            .collect::<Vec<char>>();  
+                            .map(|n| n.parse().unwrap())
+                            .collect::<Vec<char>>();  
                 points += match_part_2(vec[0], vec[1]);
                 });
 
@@ -118,6 +114,6 @@ mod day_2 {
     }
 }
 fn main() {
-    crate::day_2::part_1();
-    crate::day_2::part_2();
+    crate::day_02::part_1();
+    crate::day_02::part_2();
 }

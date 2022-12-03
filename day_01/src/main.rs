@@ -1,7 +1,4 @@
-
-#![allow(dead_code)]
-
-mod day_1 {
+mod day_01 {
 
     pub fn compute_calories(size: usize)
     {
@@ -33,6 +30,6 @@ mod day_1 {
 }
 
 fn main() {
-    crate::day_1::compute_calories(1);
-    crate::day_1::compute_calories(3);
+    crate::day_01::compute_calories(1);
+    crate::day_01::compute_calories(3);
 }
