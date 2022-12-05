@@ -40,31 +40,25 @@ mod day_05 {
         let directions = directions_ref.trim_end();
         directions.split('\n')
                     .for_each(|s| {
+
             // Create a vector that will hold all the directional commands
             let mut vec: Vec<u8> = Vec::new();
-            let mut num: String = String::new();
+            
+            // Filter out the numbers and append them to the vector
+            s.split_whitespace().for_each(|x| {
+                match x.parse::<u8>() {
+                    Ok(num) => vec.push(num),
+                    Err(_error) => {},
+                };
+            });                 
 
-            // Either I'm dumb or rust is clunky, so this is a manual mathod for splitting the strings into the three commands
-            for i in 0..s.len() {
-                let c = s.chars().nth(i).unwrap(); 
-                if c.is_ascii_digit() {
-                    num.push(c);
-                }
-                if !c.is_ascii_digit() && !num.is_empty() {
-                    vec.push(num.parse::<u8>().unwrap());
-                    num = String::new();
-                }
-        }
-        // Push the final number
-        vec.push(num.parse::<u8>().unwrap());                    
-
-        // Finally, use the directional commands to move the boxes
-        for i in 0..vec[0] {
-            let mut c: char = 'a';
-            stack.entry(vec[1]).and_modify(|v| c = v.pop().unwrap());
-            stack.entry(vec[2]).and_modify(|v| v.push(c));
-        }
-    });
+            // Finally, use the directional commands to move the boxes
+            for _i in 0..vec[0] {
+                let mut c: char = 'a';
+                stack.entry(vec[1]).and_modify(|v| c = v.pop().unwrap());
+                stack.entry(vec[2]).and_modify(|v| v.push(c));
+            }
+        });
 
     for i in 1..10 {
         stack.entry(i as u8).and_modify(|v| answer.push(v.pop().unwrap()));
@@ -113,23 +107,17 @@ mod day_05 {
         let directions = directions_ref.trim_end();
         directions.split('\n')
                     .for_each(|s| {
+
             // Create a vector that will hold all the directional commands
             let mut vec: Vec<u8> = Vec::new();
-            let mut num: String = String::new();
-
-            // Either I'm dumb or rust is clunky, so this is a manual mathod for splitting the strings into the three commands
-            for i in 0..s.len() {
-                let c = s.chars().nth(i).unwrap(); 
-                if c.is_ascii_digit() {
-                    num.push(c);
-                }
-                if !c.is_ascii_digit() && !num.is_empty() {
-                    vec.push(num.parse::<u8>().unwrap());
-                    num = String::new();
-                }
-            }
-            // Push the final number
-            vec.push(num.parse::<u8>().unwrap());
+            
+            // Filter out the numbers and append them to the vector
+            s.split_whitespace().for_each(|x| {
+                match x.parse::<u8>() {
+                    Ok(num) => vec.push(num),
+                    Err(_error) => {},
+                };
+            });                 
 
             // Finally, use the directional commands to move the boxes
             let mut c: Vec<char> = Vec::new();
