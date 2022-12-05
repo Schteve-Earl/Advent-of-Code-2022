@@ -4,11 +4,7 @@ mod day_03 {
         let mut priority_total = 0;
         
         include_str!("../input.txt")
-            .to_string()
             .lines()
-            .map(|n| n.to_string())
-            .collect::<Vec<String>>()
-            .iter()
             .for_each(|s| {
                 let (first, second) = s.split_at(s.len()/2);
                 for c in first.chars() {
@@ -27,7 +23,6 @@ mod day_03 {
         let mut priority_total = 0;
         
         include_str!("../input.txt")
-            .to_string()
             .lines()
             .map(|n| n.to_string())
             .collect::<Vec<String>>()

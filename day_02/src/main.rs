@@ -4,11 +4,7 @@ mod day_02 {
         let mut points = 0;
 
         include_str!("../input.txt")
-            .to_string()
             .lines()
-            .map(|n| n.parse().unwrap())
-            .collect::<Vec<String>>()
-            .iter()
             .for_each(|pair| {
                 let vec = pair.split(' ')
                             .map(|n| n.parse().unwrap())
@@ -24,11 +20,7 @@ mod day_02 {
         let mut points = 0;
 
         include_str!("../input.txt")
-            .to_string()
             .lines()
-            .map(|n| n.parse().unwrap())
-            .collect::<Vec<String>>()
-            .iter()
             .for_each(|pair| {
                 let vec = pair.split(' ')
                             .map(|n| n.parse().unwrap())

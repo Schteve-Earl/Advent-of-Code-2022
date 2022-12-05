@@ -6,10 +6,8 @@ mod day_01 {
         let mut vec: Vec<u32> = Vec::new();
         
         include_str!("../input.txt")
-                            .to_string()
                             .lines()
-                            .map(|n| n.to_string())
-                            .collect::<Vec<String>>().iter().for_each(|c| 
+                            .for_each(|c| 
                             { 
                                 if !c.is_empty() {
                                     r += c.parse::<u32>().unwrap();
