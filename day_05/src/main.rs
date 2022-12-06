@@ -89,7 +89,7 @@ mod day_05 {
             stack.entry(i as u8).and_modify(|v| v.reverse());
         }
 
-        // parse the directions
+        // Parse the directions
         directions.split('\n')
                     .for_each(|s| {
 
@@ -120,6 +120,7 @@ mod day_05 {
         for i in 1..10 {
             stack.entry(i as u8).and_modify(|v| answer.push(v.pop().unwrap()));
         }
+        
         println!("Part 2 answer is {answer}");
 
 
